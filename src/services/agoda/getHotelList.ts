@@ -1,12 +1,19 @@
 import { randomUUID } from 'crypto';
 import { config } from '../../config';
 
-export const getHotelListURL = async (body, cityId, hotelId) => {
+export const getHotelListURL = async (
+    body,
+    cityId,
+    hotelId,
+    dependancies = {
+        randomUUID,
+    }
+) => {
     let newUrl =
         `${config.agoda.domain}/search?textToSearch=${encodeURIComponent(
             body.hotelName
         )}` +
-        `&guid=${randomUUID()}` +
+        `&guid=${dependancies.randomUUID()}` +
         '&isRealUser=true' +
         '&mode=production' +
         `&checkIn=${body.checkIn}` +

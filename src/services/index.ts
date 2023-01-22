@@ -1,8 +1,9 @@
 import { scraper } from './agoda/scraper';
 import { getIdByText } from './agoda/getIdByText';
 import { getHotelListURL } from './agoda/getHotelList';
+import { FindHotelBody } from '../controllers';
 
-export const service = async (body) => {
+export const service = async (body: FindHotelBody) => {
     try {
         const cityId = await getIdByText(body.location);
         const hotelId = await getIdByText(`${body.hotelName} ${body.location}`);

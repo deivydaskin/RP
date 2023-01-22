@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { main } from '../controllers';
+import { findHotel } from '../controllers';
 
 const defaultRoute = Router();
 
-defaultRoute.post('/findHotel', main);
+defaultRoute.post('/findHotel', findHotel);
 
 export { defaultRoute };
